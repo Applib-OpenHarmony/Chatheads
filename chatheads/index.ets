@@ -15,4 +15,5 @@
  */
 
 export { ChatHead } from './src/main/ets/components/ChatHeads/ChatHeads'
-export { ChatHeadModel } from './src/main/ets/components/ChatHeads/Types'
+
+export { ChatheadModel } from './src/main/ets/components/ChatHeads/Types'

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import { ChatHeadModel, Point, Status, vpPoint } from './Types'
+import { ChatheadModel, Point, Status, vpPoint } from './Types'
 import { step } from './Step'
 
 @Entry
@@ -23,7 +23,7 @@ import { step } from './Step'
    * counter is used to produce delay in successive chatheads.
    */
 export struct ChatHead {
-  chatHeadModel: ChatHeadModel= new ChatHeadModel;
+  chatheadModel: ChatheadModel= new ChatheadModel();
   @State private cPosition: Point = {};
   @State private cStatus: Array<Status> = [];
   private counter: number;
@@ -33,15 +33,15 @@ export struct ChatHead {
    * initializes counter and current position of all chatheds.
    */
   aboutToAppear() {
-    this.chatHeadModel.chatheadLength = this.chatHeadModel.images.length
-    this.counter = 5 * (this.chatHeadModel.chatheadLength - 2);
-    this.chatHeadModel.getPosition = (): Point => {
+    this.chatheadModel.images.length = this.chatheadModel.images.length
+    this.counter = 5 * (this.chatheadModel.images.length - 2);
+    this.chatheadModel.getPosition = (): Point => {
       return this.cPosition;
     }
-    this.cPosition = this.chatHeadModel.position;
-    this.chatHeadModel.chatheadLength = this.chatHeadModel.images.length;
-    for (var index = 0; index < this.chatHeadModel.chatheadLength - 1; index++) {
-      this.cStatus.push({ p: this.chatHeadModel.position, v: { vx: 0, vy: 0 } })
+    this.cPosition = this.chatheadModel.position;
+    this.chatheadModel.images.length = this.chatheadModel.images.length;
+    for (var index = 0; index < this.chatheadModel.images.length - 1; index++) {
+      this.cStatus.push({ p: this.chatheadModel.position, v: { vx: 0, vy: 0 } })
     }
   }
 
@@ -54,7 +54,7 @@ export struct ChatHead {
   private getUpdatedStatus(fromIndex: number): Array<Status> {
     return this.cStatus.map((element, index) => {
       if (5 * index >= fromIndex) {
-        return step(element, this.chatHeadModel.k, this.chatHeadModel.b, this.cPosition);
+        return step(element, this.chatheadModel.k, this.chatheadModel.b, this.cPosition);
       }
       else {
         return element;
@@ -67,7 +67,7 @@ export struct ChatHead {
    * by clearing the setInterval(_,1000/framesPerSecond)
    */
   private startAnimation() {
-    this.counter = 5 * (this.chatHeadModel.chatheadLength - 2);
+    this.counter = 5 * (this.chatheadModel.images.length - 2);
     var interval = setInterval(() => {
       var newS = this.getUpdatedStatus(this.counter);
       this.counter -= this.counter > 0 ? 1 : 0;
@@ -107,7 +107,7 @@ export struct ChatHead {
    * validate that atleast one image is added.
    */
   private validateImage(): Resource{
-    var image = this.chatHeadModel.images[this.chatHeadModel.chatheadLength-1]
+    var image = this.chatheadModel.images[this.chatheadModel.images.length-1]
     if (image != undefined) {
       return image
     }
@@ -121,8 +121,8 @@ export struct ChatHead {
    */
   build() {
     Stack() {
-      ForEach(this.chatHeadModel.images, (item, index) => {
-        if (index < this.chatHeadModel.chatheadLength - 1) {
+      ForEach(this.chatheadModel.images, (item, index) => {
+        if (index < this.chatheadModel.images.length - 1) {
           Stack() {
             Image(item).width('60vp').height('60vp').border({ radius: '30vp', width: '2vp', color: Color.White })
           }
@@ -137,7 +137,7 @@ export struct ChatHead {
       }
       .position(this.getVPPosition(this.cPosition))
       .onClick((event) => {
-        this.chatHeadModel.click(event);
+        this.chatheadModel.click(event);
       })
       .onDragStart((event: DragEvent) => {
         this.cPosition.x = event.getX();
@@ -156,6 +156,6 @@ export struct ChatHead {
       .onDrop((event) => {
         this.cPosition = { x: event.getX(), y: event.getY() };
       })
-    }.opacity(this.chatHeadModel.opacity ? this.chatHeadModel.opacity : 1)
+    }.opacity(this.chatheadModel.opacity ? this.chatheadModel.opacity : 1)
   }
 }

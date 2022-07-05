@@ -52,11 +52,10 @@ export type Status = {
  * model class to intialize and maintain
  * the chathead
  */
-export class ChatHeadModel {
+export class ChatheadModel {
   position?: Point = { x: 0, y: 150 };
   k: number= 100;
   b: number= 5;
-  chatheadLength?: number;
   images?: Array<Resource> = [];
   click?: Function = (event: ClickEvent) => {
   };
@@ -65,7 +64,8 @@ export class ChatHeadModel {
    * initialize initial position of chatheads.
    * @param pos: initial position of chatheads(should be a point)
    */
-  setPosition?(pos: Point): ChatHeadModel{
+  setPosition?(pos: Point): ChatheadModel
+  {
     this.position = pos;
     return this;
   }
@@ -75,7 +75,8 @@ export class ChatHeadModel {
    * @param k: defines the stiffness of spring
    * responsible for to-and-fro motion
    */
-  setSprintConstant?(k: number): ChatHeadModel{
+  setSprintConstant?(k: number): ChatheadModel
+  {
     this.k = k;
     return this;
   }
@@ -85,7 +86,8 @@ export class ChatHeadModel {
    * @param b: defines the damping in the system,
    * larger the value quickly the speed decreases.
    */
-  setDampingConstant?(b: number): ChatHeadModel{
+  setDampingConstant?(b: number): ChatheadModel
+  {
     this.b = b;
     return this;
   }
@@ -94,7 +96,8 @@ export class ChatHeadModel {
    * sets the opacity of chatheads
    * @param opacity: if a number then should be from 0 to 1
    */
-  setOpacity(opacity: number | Resource): ChatHeadModel{
+  setOpacity(opacity: number | Resource): ChatheadModel
+  {
     this.opacity = opacity;
     return this;
   }
@@ -104,9 +107,9 @@ export class ChatHeadModel {
    * last image in the array is the one appearing at
    * top in stacked chatheads.
    */
-  addHead?(image: Resource): ChatHeadModel{
+  addHead?(image: Resource): ChatheadModel
+  {
     this.images.push(image);
-    this.chatheadLength += 1
     return this;
   }
 
@@ -114,9 +117,9 @@ export class ChatHeadModel {
    * instead of single image, it adds array of images for chatheads.
    * @param images: array of images.
    */
-  addHeads?(images: Array<Resource>): ChatHeadModel{
+  addHeads?(images: Array<Resource>): ChatheadModel
+  {
     this.images = this.images.concat(images);
-    this.chatheadLength = this.images.length;
     return this;
   }
 
@@ -152,16 +155,24 @@ export class ChatHeadModel {
   /**
    * removes the topmost head of chathead.
    */
-  removeHead?(): ChatHeadModel{
-    this.images.pop();
-    return this;
+  removeHead?(): ChatheadModel
+  {
+    if (this.images.length > 1) {
+      this.images.pop();
+      return this;
+    }
+    else {
+      console.log('Atleast one image should remain in chatheads.');
+      return this;
+    }
   }
 
   /**
    * click function is called when Chathead is clicked.
    * @param callback: a function with optional parameter event:ClickEvent
    */
-  onClick(callback: Function): ChatHeadModel{
+  onClick(callback: Function): ChatheadModel
+  {
     this.click = callback;
     return this;
   }
