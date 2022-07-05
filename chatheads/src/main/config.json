@@ -1,0 +1,24 @@
+{
+  "app": {
+    "bundleName": "com.myapplication",
+    "vendor": "example",
+    "version": {
+      "code": 1000000,
+      "name": "1.0.0"
+    }
+  },
+  "deviceConfig": {},
+  "module": {
+    "package": "com.example.chatheads",
+    "deviceType": [
+      "phone",
+      "tablet"
+    ],
+    "distro": {
+      "deliveryWithInstall": true,
+      "moduleName": "chatheads",
+      "moduleType": "har"
+    },
+    "uiSyntax": "ets"
+  }
+}
