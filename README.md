@@ -19,7 +19,7 @@ Add the following dependency in `package.json` file of your project folder: `"@o
 
 #### API
     ChatHead({chatheadModel:this.paras})
-where `paras` are chathead parameters of type [`ChatheadModel`]('./README.md#chatheadmodel')
+where `paras` are chathead parameters of type [`ChatheadModel`]('./README.md#ChatheadModel')
 
 #### ChatheadModel
 
