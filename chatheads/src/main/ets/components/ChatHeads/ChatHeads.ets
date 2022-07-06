@@ -126,7 +126,7 @@ export struct ChatHead {
           Stack() {
             Image(item).width('60vp').height('60vp').border({ radius: '30vp', width: '2vp', color: Color.White })
           }
-          .position(this.getVPPosition(this.cStatus[index].p))
+          .position(this.getVPPosition({ x: this.cStatus[index].p.x - 30, y: this.cStatus[index].p.y - 30 }))
         }
       })
       Stack() {
@@ -135,7 +135,7 @@ export struct ChatHead {
           .height('60vp')
           .border({ radius: '30vp', width: '2vp', color: Color.White })
       }
-      .position(this.getVPPosition(this.cPosition))
+      .position(this.getVPPosition({ x: this.cPosition.x - 30, y: this.cPosition.y - 30 }))
       .onClick((event) => {
         this.chatheadModel.click(event);
       })
@@ -156,6 +156,9 @@ export struct ChatHead {
       .onDrop((event) => {
         this.cPosition = { x: event.getX(), y: event.getY() };
       })
-    }.opacity(this.chatheadModel.opacity ? this.chatheadModel.opacity : 1)
+    }
+    .width('100%')
+    .height('100%')
+    .opacity(this.chatheadModel.opacity ? this.chatheadModel.opacity : 1.0)
   }
 }

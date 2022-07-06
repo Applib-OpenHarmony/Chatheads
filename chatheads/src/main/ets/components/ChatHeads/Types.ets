@@ -153,21 +153,6 @@ export class ChatheadModel {
   }
 
   /**
-   * removes the topmost head of chathead.
-   */
-  removeHead?(): ChatheadModel
-  {
-    if (this.images.length > 1) {
-      this.images.pop();
-      return this;
-    }
-    else {
-      console.log('Atleast one image should remain in chatheads.');
-      return this;
-    }
-  }
-
-  /**
    * click function is called when Chathead is clicked.
    * @param callback: a function with optional parameter event:ClickEvent
    */
