@@ -91,7 +91,7 @@ where `paras` are chathead parameters of type [`ChatheadModel`](README.md#Chathe
     }
     }
 
-<img src='./GIF/chathead.gif' width="225" height="400">
+<img src='./chathead.gif' width="225" height="400">
 
 #### License
 Licensed under the [Apache License, Version 2.0](./LICENSE)
