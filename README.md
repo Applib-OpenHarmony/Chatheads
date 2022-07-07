@@ -83,15 +83,13 @@ where `paras` are chathead parameters of type [`ChatheadModel`](README.md#Chathe
     }
     }
 
-<<<<<<< HEAD
 <img src='./GIF/chathead.gif' width="225" height="400">
+
 #### Comaptibility
 Supports OpenHarmony API version 8 and above
+
 #### Code Contribution
 If you find any problems during usage, you can submit an [Issue](https://github.com/Applib-OpenHarmony/Chatheads/issues) to us. Of course, we also welcome you to send us [PR](https://github.com/Applib-OpenHarmony/Chatheads/pulls).
-=======
-<img src='./chathead.gif' width="225" height="400">
 
->>>>>>> 4303c688e9199b1effff55b0fd35b272aeb95b10
 #### License
 Licensed under the [Apache License, Version 2.0](./LICENSE)
