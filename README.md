@@ -53,16 +53,15 @@ where `paras` are chathead parameters of type [`ChatheadModel`](README.md#Chathe
 |`onClick(callback:(event?:ClickEvent)=>{})`| function argument given is triggered whenever click event is registered on chatheads.|
 
 #### Use Case
-    import { ChatHead, ChatHeadModel } from "@ohos/chatheads"
+    import { ChatHead, ChatheadModel } from "@ohos/chatheads"
 
     @Entry
     @Component
     struct ChatHeadsSample {
-    @State chatheadModel0: ChatHeadModel = new ChatHeadModel();
-    @State chatheadModel1: ChatHeadModel = new ChatHeadModel();
+    @State chatheadModel: ChatheadModel = new ChatheadModel();
 
     aboutToAppear() {
-        this.chatheadModel0 = this.chatheadModel0
+        this.chatheadModel = this.chatheadModel
         .setPosition({ x: 150, y: 150 })
         .addHead($r('app.media.0'))
         .addHead($r('app.media.1'))
@@ -70,28 +69,24 @@ where `paras` are chathead parameters of type [`ChatheadModel`](README.md#Chathe
         .setSprintConstant(200)
         .setDampingConstant(5)
         .onClick((event) => {
-            console.log("Damp: " + this.chatheadModel0.getDampingConstant());
-            console.log("Spring: " + this.chatheadModel0.getSpringConstant());
-            console.log("Heads: " + JSON.stringify(this.chatheadModel0.getHeads()));
-            console.log("Position: " + JSON.stringify(this.chatheadModel0.getPosition()));
+            console.log("Damp: " + this.chatheadModel.getDampingConstant());
+            console.log("Spring: " + this.chatheadModel.getSpringConstant());
+            console.log("Heads: " + JSON.stringify(this.chatheadModel.getHeads()));
+            console.log("Position: " + JSON.stringify(this.chatheadModel.getPosition()));
         })
-
-        this.chatheadModel1.position = { x: 150, y: 300 };
-        this.chatheadModel1.k = 300;
-        this.chatheadModel1.b = 0;
-        this.chatheadModel1.images = [$r("app.media.4"), $r("app.media.3"), $r("app.media.2"), $r("app.media.1"), $r("app.media.0")];
-        this.chatheadModel1.opacity = 0.0001;
     }
 
     build() {
         Flex({ direction: FlexDirection.Column }) {
-        ChatHead({ chatHeadModel: this.chatheadModel0 })
-        ChatHead({ chatHeadModel: this.chatheadModel1 })
-        }.width('400vp').height('700vp').backgroundColor(Color.Yellow)
+        ChatHead({ chatheadModel: this.chatheadModel })
+        }.width('400vp').height('100%').backgroundColor(Color.Yellow)
     }
     }
 
 <img src='./GIF/chathead.gif' width="225" height="400">
-
+#### Comaptibility
+Supports OpenHarmony API version 8 and above
+#### Code Contribution
+If you find any problems during usage, you can submit an [Issue](https://github.com/Applib-OpenHarmony/Chatheads/issues) to us. Of course, we also welcome you to send us [PR](https://github.com/Applib-OpenHarmony/Chatheads/pulls).
 #### License
 Licensed under the [Apache License, Version 2.0](./LICENSE)

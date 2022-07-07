@@ -29,7 +29,6 @@ struct ChatHeadsSample {
       .addHeads([$r('app.media.2'), $r('app.media.3'), $r('app.media.4')])
       .setSprintConstant(200)
       .setDampingConstant(5)
-      .setOpacity(0.5)
       .onClick((event) => {
         console.log("Damp: " + this.chatheadModel.getDampingConstant());
         console.log("Spring: " + this.chatheadModel.getSpringConstant());
