@@ -82,6 +82,7 @@ where `paras` are chathead parameters of type [`ChatheadModel`](README.md#Chathe
     }
     }
 
+
 <img src='./GIF/chathead.gif' width="225" height="400">
 
 #### Comaptibility
