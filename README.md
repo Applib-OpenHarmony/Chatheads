@@ -30,7 +30,7 @@ where `paras` are chathead parameters of type [`ChatheadModel`](README.md#Chathe
 |b|`number`|damping of the spring|
 |images|`Array<Resource>`|represents the images used on chatheads.|
 |click|`Function:(event:ClickEvent)=>{}`|this function is called when Click Event is triggered.|
-|opacity|`number|Resource`|sets the opacity of chatheads.|
+|opacity|`number`|`Resource`|sets the opacity of chatheads.|
 
 ##### Attributes:
 |Method|Argument|description|
@@ -45,7 +45,6 @@ where `paras` are chathead parameters of type [`ChatheadModel`](README.md#Chathe
 |getSpringConstant()|-|returns the spring constant|
 |getDampingConstant()|-|returns the damping constant|
 |getHeads()|-|returns the arraay storing images of chatheads|
-|removeHead()|-|removes a chathead from the top and returns the updated class `ChatheadModel`|
 
 ##### Event
 |Event|Description|
