@@ -33,7 +33,6 @@ export struct ChatHead {
    * initializes counter and current position of all chatheds.
    */
   aboutToAppear() {
-    this.chatheadModel.images.length = this.chatheadModel.images.length
     this.counter = 5 * (this.chatheadModel.images.length - 2);
     this.chatheadModel.getPosition = (): Point => {
       return this.cPosition;
