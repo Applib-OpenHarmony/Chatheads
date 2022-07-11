@@ -60,7 +60,7 @@ where `paras` are chathead parameters of type [`ChatheadModel`](README.md#Chathe
     @State chatheadModel: ChatheadModel = new ChatheadModel();
 
     aboutToAppear() {
-        this.chatheadModel = this.chatheadModel
+        this.chatheadModel
         .setPosition({ x: 150, y: 150 })
         .addHead($r('app.media.0'))
         .addHead($r('app.media.1'))
