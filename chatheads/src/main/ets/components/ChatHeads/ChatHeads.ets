@@ -38,7 +38,6 @@ export struct ChatHead {
       return this.cPosition;
     }
     this.cPosition = this.chatheadModel.position;
-    this.chatheadModel.images.length = this.chatheadModel.images.length;
     for (var index = 0; index < this.chatheadModel.images.length - 1; index++) {
       this.cStatus.push({ p: this.chatheadModel.position, v: { vx: 0, vy: 0 } })
     }
